@@ -6,6 +6,7 @@ import streamlit as st
 
 PAGE_TITLE = "Streamlit Hackhaton"
 PAGE_ICON = ":wave:"
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # Load environment variables
 load_dotenv()

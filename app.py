@@ -26,12 +26,12 @@ def validate_form_data(data):
     required_fields = ['Name', 'Surname', 'Phone', 'Email', 'Birth Date', 'Age', 'Weight', 'Gender']
     for field in required_fields:
         if not data.get(field):
-            st.write(f"{field} is required.")
+            st.error(f"{field} is required.")
             return False
 
     # Check if age and weight are positive
     if data['Age'] <= 0 or data['Weight'] <= 0:
-        st.write("Age and Weight must be positive.")
+        st.error("Age and Weight must be positive.")
         return False
 
     # All validations passed

@@ -13,9 +13,8 @@ load_dotenv()
 
 class Database:
     def __init__(self):
-        self.client = pymongo.MongoClient(os.getenv("MONGODB_CONNECTION_STRING"))
-        self.db = self.client[os.getenv("MONGO_CLIENT")]
-        self.collection = self.db[os.getenv("MONGO_DB")]
+        self.client = pymongo.MongoClient(st.secrets["MongoDB"]["MONGODB_CONNECTION_STRING"])
+        self.db = self.client[st.secrets["MongoDB"]["MONGO_CLIENT"]]        
 
     def insert_data(self, data):
         self.collection.insert_one(data)

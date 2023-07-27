@@ -15,6 +15,8 @@ class Database:
     def __init__(self):
         self.client = pymongo.MongoClient(st.secrets["MongoDB"]["MONGODB_CONNECTION_STRING"])
         self.db = self.client[st.secrets["MongoDB"]["MONGO_CLIENT"]]        
+        self.collection = self.db[st.secrets["MongoDB"]["MONGO_DB"]]        
+
 
     def insert_data(self, data):
         self.collection.insert_one(data)
